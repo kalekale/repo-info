@@ -8,10 +8,11 @@
             [clojure.core.async :as a :refer [>! <! >!! <!! go close!]]
             [clojure.java.io :as io]
             [clojure.data.json :as json]
-            [org.httpkit.client :as http]))
+            [org.httpkit.client :as http]
+            [config.core :refer [env]]))
 
 
-(def auth-str "")
+(def auth-str (str "?" "client_id=" (env :client-id) "&" "client_secret=" (env :client-secret)))
 
 (extend-type clojure.core.async.impl.channels.ManyToManyChannel
   StreamableResponseBody
