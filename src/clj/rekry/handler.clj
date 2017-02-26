@@ -84,7 +84,7 @@
                   :commits commits}))))
 
 (defn repos-by-org [org]
-  (http/get (str "http://api.github.com/orgs/" org "/repos" auth-str "&page=1" "&per_page=100")))
+  (http/get (str "https://api.github.com/orgs/" org "/repos" auth-str "&page=1" "&per_page=100")))
 
 (defn repo-downloads [entry clojars-res]
   (:downloads
