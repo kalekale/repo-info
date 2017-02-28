@@ -86,7 +86,7 @@
                commits      (all-pages (commit-url repo))
                name         (:name repo)
                language     (:language repo)
-               stargazers   (:stargazers-count repo)]
+               stargazers   (:stargazers_count repo)]
     {:name             name
      :language         language
      :stargazers-count stargazers
