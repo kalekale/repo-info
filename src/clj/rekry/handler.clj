@@ -41,6 +41,9 @@
    (for [page-number (range 1 (inc page-count))]
      (str url "&per_page=100" "&page=" page-number))))
 
+(defn parse-body-from-req [req]
+  (json/read-json (:body req)))
+
 (defn repo-downloads [entry clojars-res]
   (:downloads
    (first (filter #(= (:name entry) (:jar_name %))
@@ -93,9 +96,6 @@
 (defn data-to-repos [repos]
   (apply d/zip (map #(repo-data %) repos)))
 
-(defn parse-body-from-req [req]
-  (json/read-json (:body req)))
-
 (defn repos-by-org [org]
   (http/get (str "https://api.github.com/orgs/" org "/repos" auth-str "&page=1" "&per_page=100")))
 
@@ -112,7 +112,8 @@
 (defroutes routes
   (GET "/" [] (resource-response "index.html" {:root "public"}))
   (resources "/")
-  (GET "/repos" [] (d-handler)))
+  (GET "/repos" [] (d-handler))
+  (GET "/asd" [] "moin"))
 
 
 (def handler #'routes)
