@@ -11,7 +11,8 @@
                  [http-kit "2.2.0"]
                  [hiccup "1.0.5"]
                  [day8.re-frame/http-fx "0.1.3"]
-                 [cljs-ajax "0.5.8"]]
+                 [cljs-ajax "0.5.8"]
+                 [manifold "0.1.5"]]
 
   :plugins [[lein-cljsbuild "1.1.4"]]
 
